@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 18:14:34 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/16 18:14:38 by achivela         ###   ########.fr       */
+/*   Created: 2024/09/08 16:36:10 by achivela          #+#    #+#             */
+/*   Updated: 2024/09/08 16:36:18 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
+	t_list	*tmp;
 
-	i = 0;
-	if (n == 0)
-	{
-		return (0);
-	}
-	while (i < (n - 1) && s1[i] == s2[i] && s1[i] != 0)
-	{
-		i++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	tmp = lst;
+	if (tmp == NULL)
+		return (NULL);
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	return (tmp);
 }
